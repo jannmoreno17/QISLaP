@@ -1,26 +1,207 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #faf8f4;
+  --surface: #ffffff;
+  --surface-2: #f3efe6;
+  --ink: #2d2d2d;
+  --muted: #5c5a56;
+  --line: #e6e0d4;
+  --accent: #ffcc29;
+  --accent-soft: #fdf0c7;
+  --orange: #fc4902;
+  --orange-ink: #b83400;
+  --brand-gray: #595959;
+  --q-bg: #101114;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #161514;
+  --surface: #1f1e1c;
+  --surface-2: #2a2825;
+  --ink: #f3f0ea;
+  --muted: #aaa49a;
+  --line: #36332e;
+  --accent: #ffcc29;
+  --accent-soft: #3a3120;
+  --orange: #fc4902;
+  --orange-ink: #ff8a5c;
+  --brand-gray: #8c8c8c;
+  --q-bg: #0b0c0e;
+  color-scheme: dark;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-orange: var(--orange);
+  --color-orange-ink: var(--orange-ink);
+  --color-charcoal: #2d2d2d;
+  --color-brand-gray: var(--brand-gray);
+  --color-q: var(--q-bg);
+  --color-offwhite: #faf8f4;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-space), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--accent);
+  color: #2d2d2d;
+}
+
+/* Scroll reveal (see components/Reveal.tsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Infinite logo marquee */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Quantum-circuit backgrounds: horizontal qubit wires with junction dots, like the QISLaP logo */
+.bg-grid,
+.bg-circuit {
+  background-image:
+    radial-gradient(circle at 60px 40px, color-mix(in srgb, var(--accent) 45%, transparent) 2.5px, transparent 3px),
+    radial-gradient(circle at 210px 120px, color-mix(in srgb, var(--accent) 45%, transparent) 2.5px, transparent 3px),
+    linear-gradient(to bottom, transparent 39px, color-mix(in srgb, var(--ink) 8%, transparent) 39px, color-mix(in srgb, var(--ink) 8%, transparent) 41px, transparent 41px);
+  background-size: 280px 80px, 280px 160px, 100% 80px;
+}
+/* The same wires on the dark quantum surface */
+.bg-circuit-dark {
+  background-color: var(--q-bg);
+  background-image:
+    radial-gradient(ellipse at 80% 10%, rgb(255 204 41 / 0.14), transparent 50%),
+    radial-gradient(ellipse at 10% 90%, rgb(252 73 2 / 0.08), transparent 45%),
+    radial-gradient(circle at 60px 40px, rgb(255 204 41 / 0.22) 2.5px, transparent 3.5px),
+    linear-gradient(to bottom, transparent 39px, rgb(255 255 255 / 0.06) 39px, rgb(255 255 255 / 0.06) 41px, transparent 41px);
+  background-size: 100% 100%, 100% 100%, 280px 80px, 100% 80px;
+}
+
+/* Amplitude pulses travelling along circuit wires */
+@keyframes q-travel {
+  0% {
+    transform: translateX(70px);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(860px);
+    opacity: 0;
+  }
+}
+.q-pulse {
+  animation: q-travel 4.5s linear infinite;
+}
+.q-static {
+  display: none;
+}
+
+/* Blinking cursor for terminal-style text */
+@keyframes q-blink {
+  50% {
+    opacity: 0;
+  }
+}
+.q-cursor::after {
+  content: "▋";
+  margin-left: 2px;
+  color: var(--accent);
+  animation: q-blink 1.1s steps(1) infinite;
+}
+
+dialog::backdrop {
+  background: rgb(20 20 20 / 0.85);
+  backdrop-filter: blur(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  .q-pulse,
+  .q-precess {
+    display: none;
+  }
+  .q-static {
+    display: inline;
+  }
+  .q-cursor::after {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
 }
