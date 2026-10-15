@@ -173,14 +173,14 @@ export const team: Member[] = [
     name: "Engr. Jaypy T. Tenerife",
     photo: "sicat-tenerife-jaypy.webp",
     credentials: ["Industrial Engineer", "Organization Development & Technostructural Interventions"],
-    roles: [{ project: "sicat", position: "Project Staff Level 3", status: "current" }],
+    roles: [{ project: "sicat", position: "Project Staff Level 3", status: "current", start: '2025-11'}],
   },
   {
     id: "ardiente",
     name: "Alexis A. Ardiente",
     photo: "sicat-ardiente-alexis.webp",
     credentials: ["BS Mechanical Engineering", 'Masters of Research and Development Management (on going)'],
-    roles: [{ project: "sicat", position: "Project Staff Level 2", status: "current" }],
+    roles: [{ project: "sicat", position: "Project Staff Level 2", status: "current", start: '2025-11' }],
   },
   {
     id: "pacleb",
