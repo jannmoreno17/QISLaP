@@ -179,14 +179,14 @@ export const team: Member[] = [
     id: "ardiente",
     name: "Alexis A. Ardiente",
     photo: "sicat-ardiente-alexis.webp",
-    credentials: ["Research Engineer", "BS Mechanical Engineering"],
+    credentials: ["BS Mechanical Engineering", 'Masters of Research and Development Management (on going)'],
     roles: [{ project: "sicat", position: "Project Staff Level 2", status: "current" }],
   },
   {
     id: "pacleb",
     name: "Engr. Napski Rudolph A. Pacleb",
     photo: "sicat-pacleb-napski-rudolph.webp",
-    credentials: ["Research Engineer", "BS in Mechanical Engineering", "BS in Radiologic Technology"],
+    credentials: ["BS in Mechanical Engineering", "BS in Radiologic Technology"],
     roles: [{ project: "sicat", position: "Project Staff Level 2", status: "current" }],
   },
   {
