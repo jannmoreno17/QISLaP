@@ -107,7 +107,7 @@ export const team: Member[] = [
   },
   {
     id: "Hernandez",
-    name: "Ate Ivy May L. Hernandez",
+    name: "Ivee Mae L. Hernandez",
     photo: "qriente-hernandez-ivee-mae.png",
     credentials: ["BS in Electrical Engineering"],
     roles: [{ project: "q-riente", position: "Project Technical Assistant I", status: "current", start: "2026-09" }],
