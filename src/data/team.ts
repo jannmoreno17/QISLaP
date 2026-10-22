@@ -105,6 +105,20 @@ export const team: Member[] = [
     credentials: ["BS in Computer Science"],
     roles: [{ project: "q-riente", position: "Project Administrative Aide I", status: "current", start: "2026-04" }],
   },
+  {
+    id: "Hernandez",
+    name: "Ate Ivy May L. Hernandez",
+    photo: "qriente-hernandez-ivee-mae.png",
+    credentials: ["BS in Electrical Engineering"],
+    roles: [{ project: "q-riente", position: "Project Technical Assistant I", status: "current", start: "2026-09" }],
+  },
+  {
+    id: "Sudla",
+    name: "Julianna C. Sudla",
+    photo: "qriente-sudla-julianna.jpg",
+    credentials: ["BS in Computer Science"],
+    roles: [{ project: "q-riente", position: "Project Technical Assistant I", status: "current", start: "2026-09" }],
+  },
 
   // Q-RIEnTe former members
   {

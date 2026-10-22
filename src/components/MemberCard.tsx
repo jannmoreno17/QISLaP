@@ -24,7 +24,7 @@ export default function MemberCard({ member, roles, former = false }: { member: 
           : "border-line bg-surface hover:-translate-y-1 hover:shadow-[0_18px_40px_-20px_rgba(45,45,45,0.35)]",
       )}
     >
-      <Avatar name={member.name} photo={member.photo} className={cn("w-28 sm:w-32", former && "opacity-80 grayscale")} />
+      <Avatar name={member.name} photo={member.photo} className={cn("w-28 sm:w-32")} />
       {former && (
         <span className="mt-4 rounded-full bg-surface-2 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-muted">
           Former member

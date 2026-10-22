@@ -186,7 +186,7 @@ export default function Home() {
                       </span>
                     ) : (
                       <span className="absolute bottom-4 left-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-charcoal">
-                        {p.id === "sicat" ? <SolarPanel /> : <Atom />}
+                        <img src={asset(p.logo)} alt={`${p.name} logo`} className="h-7 w-auto" />
                       </span>
                     )}
                   </div>

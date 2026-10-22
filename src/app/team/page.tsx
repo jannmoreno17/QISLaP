@@ -14,7 +14,7 @@ export default function TeamPage() {
       <PageHero
         eyebrow="Our people"
         title="The team behind QISLaP"
-        intro="Electrical, computer, industrial and mechanical engineers, data scientists and energy specialists working across our two projects."
+        intro="Electrical, computer, industrial engineers, data scientists and energy specialists working across our two projects."
       />
       <section className="py-16 sm:py-20">
         <Container>

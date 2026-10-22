@@ -93,7 +93,7 @@ export const projects: Project[] = [
       { date: "2026-07", title: "Thailand technical benchmarking", description: "Visits to CSSC-KMUTT, PTEC-NSTDA, PEA and IIEC." },
     ],
     cover: "/images/events/2026-07-12-sicat-thailand-solar-pv-benchmarking/photo2.webp",
-    // TODO: add the SICAT logo to public/brand and set logo: "/brand/sicat-logo.svg"
+    logo: "/brand/sicat-logo.svg",
     accent: "orange",
   },
 ];
