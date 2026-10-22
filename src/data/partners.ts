@@ -59,7 +59,7 @@ export const partners: Partner[] = [
     logo: "minerva-lab-adamson-university.webp",
     projects: ["q-riente"],
   },
-  { id: "meralco", name: "Manila Electric Company", short: "MERALCO", logo: "meralco.webp", url: "https://company.meralco.com.ph", projects: ["sicat"] },
+  // { id: "meralco", name: "Manila Electric Company", short: "MERALCO", logo: "meralco.webp", url: "https://company.meralco.com.ph", projects: ["sicat"] },
   {
     id: "iiec",
     name: "International Institute for Energy Conservation – Asia-Pacific",
