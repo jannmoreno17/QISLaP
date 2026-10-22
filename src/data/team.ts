@@ -94,7 +94,7 @@ export const team: Member[] = [
   {
     id: "postrero",
     name: "Raymond S. Postrero",
-    photo: "qriente-postrero-raymond.webp",
+    photo: "qriente-postrero-raymond.png",
     credentials: ["BS in Computer Science", "Straight PhD in Data Science (on-going)"],
     roles: [{ project: "q-riente", position: "Project Technical Assistant VI", status: "current", start: "2025-09" }],
   },
