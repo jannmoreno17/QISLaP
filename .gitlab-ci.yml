@@ -1,0 +1,27 @@
+# Builds the static Next.js export and publishes it with GitLab Pages.
+image: node:22
+
+cache:
+  key:
+    files:
+      - package-lock.json
+  paths:
+    - .npm/
+
+pages:
+  stage: deploy
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run build
+  variables:
+    # Served from the domain root (custom domain or GitLab's unique domain).
+    # Set to "/<project-name>" only if the site is served under a sub-path.
+    NEXT_PUBLIC_BASE_PATH: ""
+    NEXT_PUBLIC_SITE_URL: https://qislap.com
+  pages:
+    publish: out
+  artifacts:
+    paths:
+      - out
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
