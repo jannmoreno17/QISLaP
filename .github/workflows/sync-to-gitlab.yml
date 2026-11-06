@@ -1,0 +1,25 @@
+name: Sync to GitLab
+
+on:
+  push:
+    branches:
+      - main  # Change this if your default branch is 'master' or if you want to sync all branches
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Mirror to GitLab
+        uses: pixta-dev/repository-mirroring-action@v1
+        with:
+          target_repo_url: ${{ secrets.GITLAB_REPO_URL }}
+          ssh_private_key: "" # Leave empty if using PAT auth
+        env:
+          # This action maps GitHub secrets to handle HTTPS basic authentication
+          INPUT_TARGET_REPO_URL: ${{ secrets.GITLAB_REPO_URL }}
+
